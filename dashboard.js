@@ -152,7 +152,37 @@ async function searchIssues(){
     showLoader(false);
 }
 
+// physical page load, fetch and display issues
 loadIssues();
 document.getElementById("searchInput").addEventListener("input", searchIssues);
 
+//working with modal for issue details
 
+function openModal(issue, borderColor, priorityColor, labelsHTML){
+    const modal = document.getElementById("issueModal");
+    const modalContent = document.getElementById("modalContent");
+
+    modalContent.innerHTML = `
+        <div class="h-1 ${borderColor} rounded-t"> </div>
+        <div class="p-3 flex flex-col gap-2">
+            <div class="flex justify-between items-start">
+                <h3 class="font-semibold text-sm"> ${issue.title} </h3>
+                <span class="text-xs px-2 py-0.5 rounded ${priorityColor}"> ${issue.priority} </span>
+            </div>
+            <p class="text-xs text-gray-500"> ${issue.description} </p>
+            <div class="flex gap-2 text-xs mt-1"> ${labelsHTML} </div>
+            <hr>
+            <p class="text-xs text-gray-400 mt-2">#${issue.id} by ${issue.author} <br> ${issue.createdAt} </p>
+        </div>
+        <button onclick="closeModal()" class="absolute top-2 right-2 text-gray-500 hover:text-black">
+            <i class="fas fa-times"> </i>
+        </button>
+    `;
+
+    modal.classList.remove("hidden");
+    modal.classList.add("flex");
+}
+
+function closeModal(){
+    document.getElementById("issueModal").classList.add("hidden");
+}
