@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GitHub Issues Tracker</title>
+<link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+
+<body class="bg-gradient-to-br from-black via-gray-900 to-black min-h-screen flex items-center justify-center font-sans">
+
+<div class="relative w-[400px] p-[2px] rounded-3xl bg-gradient-to-r from-purple-500 via-pink-500 to-indigo-500 shadow-[0_0_40px_rgba(168,85,247,0.4)]">
+
+  <!-- Glass Card -->
+  <div class="bg-black/80 backdrop-blur-xl rounded-3xl p-8 text-center border border-white/10">
+
+    <!-- Logo -->
+    <div class="flex justify-center mb-5">
+      <div class="p-[2px] rounded-full bg-gradient-to-r from-purple-500 to-pink-500">
+        <div class="bg-white rounded-full p-3 shadow-inner">
+          <img src="B13-A5-Github-Issue-Tracker/assets/github-logo.png" class="w-10">
+        </div>
+      </div>
+    </div>
+
+    <!-- Title -->
+    <h1 class="text-2xl font-extrabold text-white tracking-wide">
+      GitHub Issues Tracker
+    </h1>
+    <p class="text-gray-400 text-sm mb-6">Secure access to your workspace</p>
+
+    <!-- Inputs -->
+    <div class="space-y-4">
+      <input id="username" class="w-full bg-transparent border border-gray-600 p-3 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:border-purple-500 focus:ring-2 focus:ring-purple-500/40 transition" placeholder="Enter Username">
+
+      <input id="password" type="password" class="w-full bg-transparent border border-gray-600 p-3 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:border-pink-500 focus:ring-2 focus:ring-pink-500/40 transition" placeholder="Enter Password">
+    </div>
+
+    <!-- VIP Button -->
+    <button onclick="login()" class="relative mt-6 w-full p-[2px] rounded-xl bg-gradient-to-r from-purple-500 via-pink-500 to-indigo-500 group">
+      <span class="block w-full bg-black rounded-xl py-3 font-semibold text-white tracking-wide transition duration-300 group-hover:bg-transparent group-hover:text-white">
+        ✨ Sign In Securely
+      </span>
+    </button>
+
+    <!-- Divider -->
+    <div class="flex items-center my-6">
+      <hr class="flex-grow border-gray-700">
+      <span class="mx-3 text-gray-500 text-xs tracking-widest">OR</span>
+      <hr class="flex-grow border-gray-700">
+    </div>
+
+    <!-- Demo Credentials -->
+    <div class="bg-gradient-to-r from-gray-800 to-gray-900 p-4 rounded-xl border border-gray-700 text-sm text-gray-300 shadow-inner">
+      <p class="font-semibold text-white mb-1">Demo Access</p>
+      <p><span class="font-bold text-purple-400">Username:</span> admin</p>
+      <p><span class="font-bold text-pink-400">Password:</span> admin123</p>
+    </div>
+
+    <!-- Error -->
+    <p id="error" class="text-red-400 mt-3 text-sm"></p>
+
+  </div>
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
