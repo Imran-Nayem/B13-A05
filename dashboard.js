@@ -100,5 +100,8 @@ function setActiveTab(tabName, issues){
     });
 
  
+    issueCountEl.innerText = `${issues.length} Issues`;
 }
+
+
 
