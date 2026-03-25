@@ -10,7 +10,7 @@
 
 <body class="bg-gray-100 min-h-screen">
 
-  <!-- NAVBAR -->
+  <!-- navbar -->
   <nav class="flex justify-between items-center px-6 py-4 bg-white shadow-sm border-b">
     <div class="flex items-center gap-3">
       <div class="bg-white p-2 rounded-full shadow">
@@ -33,14 +33,14 @@
     </div>
   </nav>
 
-  <!-- TABS -->
+  <!-- tab -->
   <div class="bg-white mx-6 mt-6 p-3 rounded-xl shadow-sm flex gap-3">
     <button id="AllBtn" class="tab-btn px-4 py-1 rounded-lg bg-pink-600 text-white" onclick="filterIssues('All')">All</button>
     <button id="OpenBtn" class="tab-btn px-4 py-1 rounded-lg bg-gray-100" onclick="filterIssues('Open')">Open</button>
     <button id="ClosedBtn" class="tab-btn px-4 py-1 rounded-lg bg-gray-100" onclick="filterIssues('Closed')">Closed</button>
   </div>
 
-  <!-- HEADER -->
+  <!-- header -->
   <div class="bg-white mx-6 mt-4 p-4 rounded-xl shadow-sm flex justify-between items-center">
     <div class="flex items-center gap-4">
       <div class="bg-gray-100 rounded-full p-2">
@@ -62,10 +62,10 @@
     </div>
   </div>
 
-  <!-- ISSUES GRID -->
+  <!-- issues grid -->
   <div id="issuesContainer" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 mt-6 mx-6"></div>
 
-  <!-- MODAL -->
+  <!-- modal section -->
   <div id="issueModal" class="hidden fixed inset-0 bg-black/60 flex justify-center items-center z-50">
     <div id="modalContent" class="bg-white p-6 rounded-xl shadow-xl  transform transition-transform duration-300 scale-95">
       <h2 class="text-lg font-bold mb-4">Create New Issue</h2>
