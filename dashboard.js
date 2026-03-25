@@ -105,3 +105,54 @@ function setActiveTab(tabName, issues){
 
 
 
+//load issues from api and store in allIssues for filtering and searching
+let allIssues = [];
+
+async function loadIssues(){
+    showLoader(true);
+
+    try {
+        const res = await fetch(API);
+        const data = await res.json();
+        allIssues = data.data;        
+        displayIssues(allIssues);     
+        setActiveTab("All", allIssues);
+    } catch(e){
+        container.innerHTML = "<p class='text-red-500'> Failed to load issues. </p>";
+    }
+
+    showLoader(false);
+}
+
+
+function filterIssues(status){
+    let filtered = [];
+    if(status === "All") filtered = allIssues;
+    else filtered = allIssues.filter(i=> i.status.toLowerCase() === status.toLowerCase());
+
+    displayIssues(filtered);
+    setActiveTab(status, filtered);
+}
+
+
+//search issues by title and description 
+async function searchIssues(){
+    const text = document.getElementById("searchInput").value.trim();
+    if(!text) return displayIssues(allIssues);
+
+    showLoader(true);
+    try{
+        const res = await fetch(`https://phi-lab-server.vercel.app/api/v1/lab/issues/search?q=${text}`);
+        const data = await res.json();
+        displayIssues(data.data);
+        setActiveTab("All", data.data);
+    } catch(e){
+        container.innerHTML = "<p class='text-red-500'>Search failed. </p>";
+    }
+    showLoader(false);
+}
+
+loadIssues();
+document.getElementById("searchInput").addEventListener("input", searchIssues);
+
+
